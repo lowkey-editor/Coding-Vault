@@ -52,7 +52,7 @@ export const LanguageMenu = ({ open, onClose }) => {
               <X size={16} className="transition-transform duration-300 group-hover:rotate-90" />
             </button>
           </div>
-          <div className="flex-1 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto" data-lenis-prevent>
             {languages.map((lang, i) => {
               const Icon = lang.iconComponent;
               return (

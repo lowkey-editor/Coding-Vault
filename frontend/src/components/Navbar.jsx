@@ -1,16 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { LanguageMenu } from "./LanguageMenu";
+import { scrollToChapter } from "./ChapterNav";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const goIndex = () => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => scrollToChapter("language-index-section"), 900);
+    } else {
+      scrollToChapter("language-index-section");
+    }
+  };
 
   return (
     <>
@@ -39,13 +51,13 @@ export const Navbar = () => {
             </span>
           </Link>
           <div className="flex items-center gap-5 md:gap-8">
-            <Link
-              to="/#index"
+            <button
+              onClick={goIndex}
               data-testid="nav-index-link"
-              className="font-jetbrains text-xs uppercase tracking-[0.25em] text-dim hover:text-cream transition-colors duration-300"
+              className="font-jetbrains text-xs uppercase tracking-[0.25em] text-dim hover:text-cream transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               Index
-            </Link>
+            </button>
             <Link
               to="/quiz"
               data-testid="nav-quiz-link"

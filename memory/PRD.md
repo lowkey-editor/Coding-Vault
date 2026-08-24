@@ -18,7 +18,8 @@ User had a plain HTML page listing 7 programming languages (Python, Java, C, C++
 
 ## Implemented (July 2026)
 - Rebrand to CodingVault: wordmark "Coding" (Clash Display) + "Vault" (Cormorant italic accent) with a masked color-swap hover animation; browser title and meta description updated; tagline "Seven Languages. One Coding Journey. / Learn the fundamentals, practice the basics, and discover which language fits you best" placed as the home hero kicker + description
-- Language quick-picker: the navbar "07 LANGUAGES" button opens a full-screen staggered overlay of all languages (ESC/close button, Lenis scroll lock); picking one navigates to its page and auto-scrolls straight to the Basics chapter via #basics hash handling
+- Language quick-picker: the navbar "07 LANGUAGES" button opens a full-screen staggered overlay of all languages (ESC/close button, Lenis scroll lock with data-lenis-prevent on the inner list so the overlay scrolls); picking one navigates to its page and auto-scrolls straight to the Basics chapter via #basics hash handling
+- Navbar "Index" button scrolls to the language grid from anywhere (cross-page navigate + delayed re-aim scroll)
 - Keyboard shortcuts: pressing 1–6 on any language page jumps straight to that chapter (guarded against modifier keys and text inputs); key hints shown in the chapter bar
 - Reading progress: a 2px accent line fixed to the top of every detail page grows with scroll depth, spring-smoothed via framer-motion useScroll
 - Section bookmarks: sticky chapter nav on detail pages (Story / Basics / Code / Timeline / Where it runs / Trade-offs) with smooth Lenis jumps, scroll-spy active highlighting, and a drift-correction re-aim for late font-swap layout shifts
@@ -41,7 +42,7 @@ User had a plain HTML page listing 7 programming languages (Python, Java, C, C++
 - Mobile viewport renders cleanly (screenshot)
 
 ## Backlog
-- P2: Quiz result sharing (copyable link); keyboard shortcuts on detail pages (1-6 jump to chapters)
+- P2: Quiz result sharing (copyable link); chapter deep links (shareable URL per chapter)
 - P3: Dark/light toggle (light editorial variant); more languages (Go, Rust, Kotlin); share buttons
 
 ## Credentials
